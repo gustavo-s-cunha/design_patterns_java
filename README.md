@@ -8,23 +8,25 @@ Dica: Além dos projetos/repositórios que criamos para este desafio, caso queir
 
 
 # https://start.spring.io/
-Spring Boot: 2.5.4
-Java: 11
+- Spring Boot: 2.5.4
+- Java: 11
 
 # Dependencies:
-  Spring Data JPA
-  Spring Web
-  H2 Database 
-  OpenFeign
-  io.springfox
-  jakarta.validation
+- Spring Data JPA
+- Spring Web
+- H2 Database 
+- OpenFeign
+- io.springfox
+- jakarta.validation
 
 http://springfox.github.io/springfox/docs/current/#maven
+
 OpenAPI/Swagger
+
 Acesso: http://localhost:8080/swagger-ui/
 
 # Utilizados
 - GOF
 - Validações cliente
-- - Nome
-- - Email
+  - Nome
+  - Email
