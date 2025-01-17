@@ -13,7 +13,9 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  * - OpenFeign
  * Adicionados posteriormente:
  * - io.springfox
- * 
+ * - jakarta.validation
+ * requests access:
+ * - http://localhost:8080/swagger-ui/
  * @author gustavo_s_c
  */
 @EnableFeignClients

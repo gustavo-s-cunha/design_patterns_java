@@ -18,4 +18,6 @@ public interface ClienteService {
 
 	void deletar(Long id);
 
+	boolean existsByEmail(String email);
+
 }

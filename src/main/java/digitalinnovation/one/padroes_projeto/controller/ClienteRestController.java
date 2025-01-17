@@ -37,12 +37,22 @@ public class ClienteRestController {
 		return ResponseEntity.ok(clienteService.buscarPorId(id));
 	}
 
+	@GetMapping("/exists-by-email/{email}")
+	public ResponseEntity<Boolean> existsByEmail(@PathVariable String email) {
+		return ResponseEntity.ok(clienteService.existsByEmail(email));
+	}
+
 	@PostMapping
 	public ResponseEntity<Object> inserir(@RequestBody Cliente cliente) {
 		if (cliente.getNome() == null || cliente.getNome().trim().isEmpty()) {
 			return ResponseEntity
 				.status(HttpStatus.BAD_REQUEST)
 				.body("Erro: O nome do cliente é obrigatório.");
+		}
+		if (clienteService.existsByEmail(cliente.getEmail())) {
+			return ResponseEntity
+				.status(HttpStatus.BAD_REQUEST)
+				.body("Erro: O email do cliente já está em uso.");
 		}
 
 		clienteService.inserir(cliente);
@@ -56,6 +66,11 @@ public class ClienteRestController {
 			return ResponseEntity
 				.status(HttpStatus.BAD_REQUEST)
 				.body("Erro: O nome do cliente é obrigatório.");
+		}
+		if (clienteService.existsByEmail(cliente.getEmail())) {
+			return ResponseEntity
+				.status(HttpStatus.BAD_REQUEST)
+				.body("Erro: O email do cliente já está em uso.");
 		}
 
 		clienteService.atualizar(id, cliente);

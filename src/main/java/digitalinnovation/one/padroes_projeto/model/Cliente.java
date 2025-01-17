@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class Cliente {
@@ -12,9 +14,15 @@ public class Cliente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	private String nome;
 	@ManyToOne
 	private Endereco endereco;
+
+	@NotEmpty(message = "O nome do cliente é obrigatório.")
+	private String nome;
+
+	@NotEmpty(message = "O email do cliente é obrigatório.")
+	@Email(message = "O email deve estar em um formato válido.")
+	private String email;
 
 	public Long getId() {
 		return id;
@@ -40,4 +48,11 @@ public class Cliente {
 		this.endereco = endereco;
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 }

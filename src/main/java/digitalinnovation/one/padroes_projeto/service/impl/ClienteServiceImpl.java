@@ -46,6 +46,14 @@ public class ClienteServiceImpl implements ClienteService {
 	}
 
 	@Override
+	public boolean existsByEmail(String email) {
+		// Buscar Cliente por email.
+		Boolean clienteBd = clienteRepository.existsByEmail(email);
+		System.out.println(clienteBd);
+		return clienteBd;
+	}
+
+	@Override
 	public void inserir(Cliente cliente) {
 		salvarClienteComCep(cliente);
 	}
